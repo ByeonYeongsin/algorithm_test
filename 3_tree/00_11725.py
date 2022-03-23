@@ -13,7 +13,7 @@ for _ in range(N-1):
         parent_node.append(t2)
     elif t2 in parent_node:
         nodes.append([t2, t1])
-        parent_node(t1)
+        parent_node.append(t1)
 
 nodes.sort(key=lambda x:x[1])
 for node in nodes:
