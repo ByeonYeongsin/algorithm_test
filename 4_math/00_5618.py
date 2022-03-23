@@ -9,6 +9,18 @@ def GCD(x, y):
     else:
         return GCD(y, x%y)
     
+
+# def GCD(a,b):
+#     if a<b:
+#         tmp = a
+#         a = b
+#         b = tmp
+#     while b!=0:
+#         tmp = a%b
+#         a = b
+#         b = tmp
+#     return a
+
 num_list = []
 N = int(sys.stdin.readline().strip())
 num_list = list(map(int, sys.stdin.readline().strip().split()))
