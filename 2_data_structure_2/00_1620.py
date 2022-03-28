@@ -13,6 +13,7 @@ for i in range(N):
 for j in range(M):
     now_ques = sys.stdin.readline().strip()
     if now_ques.isalpha(): # 오로지 알파벳, 한글만 있어야 True, 빈 칸도 안됨
+    # .isdigit() => 숫자인지 판단
         print(pokemon_dict[now_ques])
     else:
         print(pokemon_dict[int(now_ques)])
