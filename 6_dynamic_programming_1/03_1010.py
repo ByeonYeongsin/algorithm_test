@@ -2,14 +2,14 @@
 
 import sys
 
-# dp = [[0] * 31] * 31
-# for west in range(1, 31):
-#     for east in range(west, 31):
-#         if west == 1:
-#             dp[west][east] = east
-#         if west == east:
-#             dp[west][east] = 1
-
+# dp = [[0] * 31] * 31 잘못된 초기화
+dp = [[0] * 31 for _ in range(31)]
+for west in range(1, 31):
+    for east in range(west, 31):
+        if west == 1:
+            dp[west][east] = east
+        if west == east:
+            dp[west][east] = 1
 
 for west in range(2, 31):
     for east in range(west+1, 31):
