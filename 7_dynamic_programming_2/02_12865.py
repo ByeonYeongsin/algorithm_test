@@ -1,4 +1,6 @@
 # 평범한 배낭
+# Not Yet
+
 from _typeshed import StrPath
 import sys
 
