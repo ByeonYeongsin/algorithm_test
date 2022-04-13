@@ -1,7 +1,7 @@
 # 상어 초등학교
 
 import sys
-input = sys.stdin.readline().strip
+input = sys.stdin.readline().strip()
 
 dr = [-1, 1, 0, 0]
 dc = [0, 0, -1, 1]
