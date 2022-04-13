@@ -2,8 +2,8 @@
 
 import sys
 
-# n, x = map(int, sys.stdin.readline().strip().split())
-# vis_list = list(map(int, sys.stdin.readline().strip().split()))
+n, x = map(int, sys.stdin.readline().strip().split())
+vis_list = list(map(int, sys.stdin.readline().strip().split()))
 
 # max_count = 0
 # now = 0

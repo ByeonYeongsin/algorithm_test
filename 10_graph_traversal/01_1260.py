@@ -1,39 +1,32 @@
 # dfs와 bfs
-
-def dfs(n):
-    print(n, end = ' ')
-    visited[n] = True
-    for i in graph[n]:
-        if visited[i] == 0:
-            dfs(i)
-
-def bfs(n):
-    visited[n] = True
-    queue = deque([n])
-    while queue:
-        v = queue.popleft()
-        print(v, end = ' ')
-        for i in graph[v]:
-            if visited[i] == 0:
-                queue.append(i)
-                visited[i] = True
-
 import sys
-from collections import deque
 
 n, m, v = map(int, sys.stdin.readline().split())
-graph = [[] for _ in range(n+1)]
-visited = [False] * (n + 1)
+matrix = [[0] * (n+1) for i in range(n+1)]
+visited = [0] * (n+1)
 
 for _ in range(m):
     a, b = map(int, sys.stdin.readline().split())
-    graph[a].append(b)
-    graph[b].append(a)
+    matrix[a][b] = matrix[b][a] = 1
 
-for i in range(1, n+1):
-    graph[i].sort()
+def dfs(n):
+    visited[v] = 1
+    print(v, end = ' ')
+    for i in range(1, n+1):
+        if (visited[i] == 0 and matrix[v][i] == 1):
+            dfs(i)
+
+def bfs(n):
+    queue = [n]
+    visited[n] = 0
+    while queue:
+        v = queue.pop(0)
+        print(v, end = ' ')
+        for i in range(1, n+1):
+            if(visited[i] == 1 and matrix[v][i] == 1):
+                queue.append(i)
+                visited[i] = 0
 
 dfs(v)
-visited = [False] * (n + 1)
 print()
 bfs(v)
