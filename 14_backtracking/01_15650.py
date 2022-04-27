@@ -13,8 +13,8 @@ def dfs(now):
 
     for i in range(now, n+1):
         if i not in s:
-            s.append(i)
-            dfs(i)
+            s.append(i) # 1 #2
+            dfs(i) # 2 # 3 # 4 #
             s.pop()
 
 dfs(1)
