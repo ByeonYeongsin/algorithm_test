@@ -1,5 +1,10 @@
 # 귀찮아 (SIB)
 
+# list = 1 -2 3
+# x1*x2 + x1*x3 + x2*x3 = x1(x2+x3) + x2*(x3)
+
+
+
 import sys
 
 # (xaxb) = x1x2 + x1x3 + ... + x(n-1)xn = x1(x2+x3+...+xn) + x2(x3+x4+...+xn) + xn-1(xn)

@@ -15,13 +15,14 @@ def pooling(nums, n):
     
     for i in range(0, n, 2):
         for j in range(0, n, 2):
-            now_pool = []
-            now_pool.append(nums[i][j])
-            now_pool.append(nums[i][j+1])
-            now_pool.append(nums[i+1][j])
-            now_pool.append(nums[i+1][j+1])
+            # now_pool = []
+            # now_pool.append(nums[i][j])
+            # now_pool.append(nums[i][j+1])
+            # now_pool.append(nums[i+1][j])
+            # now_pool.append(nums[i+1][j+1])
+            # now_pool.sort()
+            now_pool = [nums[i][j], nums[i][j+1], nums[i+1][j], nums[i+1][j+1]]
             now_pool.sort()
-            # now_pool = [nums[i][j], nums[i][j+1], nums[i+1][j], nums[i+1][j+1]].sort()
             new_map[i//2].append(now_pool[2])
     return pooling(new_map, n//2)
 
