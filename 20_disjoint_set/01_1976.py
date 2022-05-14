@@ -1,16 +1,18 @@
 # 여행 가자
-from pickle import FALSE, TRUE
 import sys
 sys.setrecursionlimit(1000000)
 
-from torch import true_divide
-
 n = int(sys.stdin.readline().strip())
 m = int(sys.stdin.readline().strip())
-cities = []
-for _ in range(n):
-    cities.append(list(map(int, sys.stdin.readline().strip().split())))
-city_parent = [i for i in range(n+1)]
+city_parent = [i for i in range(n)]
+
+def union(x, y):
+    x = get_parent(x)
+    y = get_parent(y)
+    if x < y :
+        city_parent[y] = x
+    else:
+        city_parent[x] = y
 
 def get_parent(n):
     if city_parent[n] != n:
@@ -18,20 +20,18 @@ def get_parent(n):
     return city_parent[n]
 
 for i in range(n):
-    for j in range(i+1, n):
-        if int(cities[i][j]) == 1:
-            city_parent[get_parent(j)] = get_parent(i)
+    link = list(map(int, sys.stdin.readline().strip().split()))
+    for j in range(n): # 왜 (i+1, n)은 안되는지
+        if link[j] == 1:
+            union(i, j)
 
-plan = set(get_parent(map(int, sys.stdin.readline().strip().split())))
-flag = 1
-# for i in range(m-1):
-#     if city_parent[get_parent(plan[i]-1)] != city_parent[get_parent(plan[i+1]-1)]:
-#         flag = 0
-#         print('NO')
-#         break
-# if flag == 1:
-#     print('YES')
-if len(plan) == 1:
+plan = map(int, sys.stdin.readline().strip().split())
+plan_set = []
+for now_plan in plan:
+    plan_set.append(city_parent[now_plan-1])
+plan_set = set(plan_set)
+
+if len(plan_set) == 1:
     print('YES')
 else:
     print('NO')
