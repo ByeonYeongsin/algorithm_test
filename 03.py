@@ -17,7 +17,7 @@ def queen(row, col):
     board[row][col] = 1
     if row == N-1:
         count += 1
-        
+
 
 f = open('input/3_input.txt', 'r')
 T = int(f.readline().strip())
@@ -25,9 +25,10 @@ T = int(f.readline().strip())
 for t in range(T):
     count = 0
     N = int(f.readline().strip())
-    board = [[0] * N for _ in range(N)]
     for row in range(N):
+        board = [[0] * N for _ in range(N)]
         for col in range(N):
+            print(row, col)
             queen(row, col)
     print('#', t, ' ', count, sep='')
 f.close()
