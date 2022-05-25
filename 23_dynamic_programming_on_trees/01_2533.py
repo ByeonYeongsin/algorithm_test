@@ -12,6 +12,7 @@ for _ in range(n-1):
     c[b].append(a)
 
 visited = [0 for i in range(n+1)]
+
 def dfs(start):
     global c
     global visited
