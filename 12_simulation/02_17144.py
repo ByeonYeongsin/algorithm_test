@@ -79,17 +79,22 @@ def air_move():
         air[i][0] = air[i + 1][0]
     air[R - 2][0] = temp_2
 
-
 R, C, T = map(int, sys.stdin.readline().strip().split())
-air =[]
-for _ in range(R):
-    air_tmp = list(map(int, sys.stdin.readline().strip().split()))
-    air.append(air_tmp)
+air = [list(map(int, sys.stdin.readline().strip().split())) for _ in range(R)]
 
 for i in range(R):
     if air[i][0] == -1:
         up, down = [i, 0], [i+1, 0]
+        break
 
 for i in range(T):
     dust_move()
     air_move()
+
+total = 0
+for i in range(R):
+    for j in range(C):
+        if air[i][j] > 0:
+            total += air[i][j]
+
+print(total)
