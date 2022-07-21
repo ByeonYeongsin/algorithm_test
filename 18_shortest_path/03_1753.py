@@ -4,8 +4,7 @@ import heapq
 
 V, E = sys.stdin.readline().strip().split()
 K = sys.stdin.readline().strip().split()
-dist = [float('int')] * (V)
-
+dist = [float('inf')] * (V)
 linked = [[] for i in range(V)]
 for _ in range(E):
     u, v, w = sys.stdin.readline().strip().split()
