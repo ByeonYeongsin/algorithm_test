@@ -1,25 +1,16 @@
 # 구간 합 구하기 5
 import sys
+input = sys.stdin.readline
 
-from numpy import matrix
+n, m = map(int, input().split())
+data = [list(map(int, input().split())) for _ in range(n)]
+sum_data = [[0] * (n+1) for i in range(n+1)]
 
-N, M = map(int, sys.stdin.readline().strip().split())
-nums = []
-for _ in range(N):
-    nums.append(list(map(int, sys.stdin.readline().strip().split())))
+for i in range(1, n+1):
+    for j in range(1, n+1):
+        sum_data[i][j] = sum_data[i][j-1] + sum_data[i-1][j] - sum_data[i-1][j-1] + data[i-1][j-1]
 
-for i in range(N):
-    for j in range(N):
-        if j == 0:
-            continue
-        else:
-            nums[i][j] += nums[i][j-1]
+for _ in range(m):
+    x1, y1, x2, y2 = map(int, input().split())
 
-for _ in range(M):
-    x1, y1, x2, y2 = map(int, sys.stdin.readline().strip().split())
-    answer = 0
-    for i in range(x1-1, x2):
-        if y1 != 1:
-            answer -= nums[i][y1-1]
-        answer += nums[i][y2-1]
-    print(answer)
+    print(sum_data[x2][y2] - sum_data[x1-1][y2] - sum_data[x2][y1-1] + sum_data[x1-1][y1-1])
