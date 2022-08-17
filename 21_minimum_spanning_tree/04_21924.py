@@ -27,13 +27,16 @@ def union(node1, node2):
         return True
 MST = 0
 edge_cnt = 0
+
+# 크루스칼
 while pq:
     cur_cost, node1, node2 = heapq.heappop(pq)
     if union(node1, node2):
         MST += cur_cost
         edge_cnt += 1
         if edge_cnt == n-1: break
-    # 크루스칼
 
-if edge_cnt == n-1: print(total - MST)
-else: print(-1)
+if edge_cnt == n-1: 
+    print(total - MST)
+else: 
+    print(-1)
