@@ -1,4 +1,4 @@
-# ACM Craft
+# 줄 세우기
 import sys
 from collections import deque
 

@@ -6,7 +6,6 @@ for _ in range(T):
     str = sys.stdin.readline().strip().replace(" ", "").split()
     print(str)
     str = str[0]
-    print(str)
     nums = [0]*26
     for s in str:
         if s.isalpha():
